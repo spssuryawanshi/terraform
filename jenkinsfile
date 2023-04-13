@@ -1,31 +1,23 @@
-pipline {
+            pipline {
+                 agent any
+                  stages{
+                      stage ("github checkout"){
+                  steps{
+                          checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '123456', url: 'https://github.com/spssuryawanshi/terraform.git']])
+                    }
+                   }
 
-agent any
+                              stage ("Terraform init") {
+                                 steps {
+                                      sh 'terraform init'     
 
-stages{
-
-    stage ("github checkout"){
-
-        steps{
-           checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '123456', url: 'https://github.com/spssuryawanshi/terraform.git']])
-
-         }
-
-                }
-
-            stage ("Terraform init") {
-            steps {
-                   sh 'terraform init'     
-
-                       }
-                 }    
+                                   }      
+                             }    
         
-                              stage ("Terraform plan") {
-                               steps {
-                                 sh 'terraform paln --Auto-approve'     
-
+                                          stage ("Terraform plan") {
+                                            steps {
+                                             sh 'terraform plan --Auto-approve'     
                               }
-
                             }    
 
                            stage ("Terraform Apply") {
