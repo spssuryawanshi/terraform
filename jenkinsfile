@@ -7,7 +7,7 @@ stages{
     stage ("github checkout"){
 
         steps{
-           checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/spssuryawanshi/terraform/tree/master']])
+           checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '123456', url: 'https://github.com/spssuryawanshi/terraform.git']])
 
          }
 
