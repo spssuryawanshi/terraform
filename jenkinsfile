@@ -1,4 +1,4 @@
-            pipegiline {
+            pipeline {
                  agent any
                   stages{
                       stage ("github checkout"){
