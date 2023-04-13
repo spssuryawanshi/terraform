@@ -16,7 +16,7 @@
         
                               stage ("Terraform plan") {
                                steps {
-                                 sh 'terraform paln --Auto-approve'     
+                                 sh 'terraform plan'     
 
                               }
                             }    
