@@ -18,7 +18,7 @@
 
                            stage ("Terraform Apply") {
                                  steps  {
-                               sh ' terraform apply --Auto-approve'     
+                               sh 'terraform apply --Auto-approve'     
 
                            }
 
